@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="blog">
+<html lang="en" ng-app="c">
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -11,12 +11,11 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
     <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- endbuild -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <style>
         .navbar {
             margin-bottom: 0;
-            border-radius: 0;
+            border-radius: 0;-
         }
 
     </style>
@@ -59,12 +58,14 @@
 
 </div><br>
 
-<div ng-include src="'footer.html'"></div>
+<div ui-view="footer"></div>
 
 <!-- build:js scripts/main.js -->
-
+<script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/route.js"></script>
 
 <!-- endbuild -->
 
