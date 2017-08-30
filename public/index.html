@@ -15,15 +15,16 @@
     <style>
         .navbar {
             margin-bottom: 0;
-            border-radius: 0;-
+            border-radius: 0;
         }
 
     </style>
 
 </head>
 <body >
+<div ui-view="header"></div>
 
-<nav class="navbar navbar-inverse">
+<!--<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -44,19 +45,9 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav>-->
 
-<div class="jumbotron">
-    <div class="container text-center">
-        <h1>My Portfolio</h1>
-        <p>Some text that represents "Me"...</p>
-    </div>
-</div>
-
-<div class="container-fluid bg-3 text-center">
-    <h3>Some of my Work</h3><br>
-
-</div><br>
+<div ui-view="content"></div>
 
 <div ui-view="footer"></div>
 

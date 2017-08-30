@@ -7,6 +7,13 @@ angular.module('c', ['ui.router'])
             .state('app', {
                 url:'/',
                 views: {
+                    'header': {
+                        templateUrl : 'header.html'
+                    },
+                    'content':{
+                        templateUrl : 'homepage.html'
+
+                    },
 
                     'footer': {
                         templateUrl : 'footer.html'
@@ -18,7 +25,7 @@ angular.module('c', ['ui.router'])
                 url:'aboutus',
                 views: {
                     'content@': {
-                        templateUrl : 'views/aboutus.html'
+                        templateUrl : 'aboutus.html'
                     }
                 }
             })
@@ -27,14 +34,14 @@ angular.module('c', ['ui.router'])
                 url:'contactus',
                 views: {
                     'content@': {
-                        templateUrl : 'views/contactus.html',
-                        controller  : 'ContactController'
+                        templateUrl : 'contactus.html'
+
                     }
                 }
-            })
+            });
 
             // route for the menu page
-            .state('app.menu', {
+            /*.state('app.menu', {
                 url: 'menu',
                 views: {
                     'content@': {
@@ -53,7 +60,7 @@ angular.module('c', ['ui.router'])
                         controller  : 'DishDetailController'
                     }
                 }
-            });
+            });*/
         $urlRouterProvider.otherwise('/');
     });
 

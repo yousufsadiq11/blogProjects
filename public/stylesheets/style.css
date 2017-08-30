@@ -5,12 +5,13 @@
   bottom:0px;
   height:30px;
   width: 100%;
-  background: #122b40;
+  background: #0f0f0f;
 }
 p{
-    color: #5bccde;
+    color: #843534;
+    font-size: large;
 }
 
-a {
+#contact {
   color: #9acfea;
 }
