@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" style="padding-top: 7%">
+            <div class="panel panel-login" id="card">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <form id="register-form" action="#" method="post" role="form" name="registerform" novalidate>
+                                <h2 style="position:relative;left:12px;color:#2b669a;font-weight:bold;">REGISTER</h2>
+                                <div class="form-group" ng-class="{ 'has-error' : registerform.firstname.$invalid && (!registerform.firstname.$pristine || registerform.firstname.$touched) }">
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Username"
+                                               ng-model="registerform.firstName" required>
+                                        <i class="fa fa-close"  ng-style="{'color':'red'}" ng-show="registerform.firstname.$invalid && (!registerform.firstname.$pristine || registerform.firstname.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'red'}" ng-show="registerform.firstname.$invalid&&(!registerform.firstname.$pristine  || registerform.firstname.$touched)">Username is required.</span>
+                                    </div>
+                                </div><br>
+                                <div class="form-group" ng-class="{ 'has-error' : registerform.email.$invalid && (!registerform.email.$pristine || registerform.email.$touched) }">
+                                    <div class="col-sm-10" >
+                                        <input type="email" id="email" name="email" placeholder="Enter email" class="form-control"
+                                               ng-model="registerform.Email" required>
+                                        <i class="fa fa-close"  ng-style="{'color':'red'}" ng-show="registerform.email.$invalid && (!registerform.email.$pristine || registerform.email.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'red'}" ng-show="registerform.email.$invalid&&(!registerform.email.$pristine  || registerform.email.$touched)" >Email is required.</span>
+
+                                    </div>
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error' : registerform.password.$invalid && (!registerform.password.$pristine || registerform.password.$touched) }">
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"
+                                               ng-model="registerform.Password" required>
+                                        <i class="fa fa-close" ng-style="{'color':'red'}" ng-show="registerform.password.$invalid && (!registerform.password.$pristine || registerform.password.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'red'}" ng-show="registerform.password.$invalid&&(!registerform.password.$pristine  || registerform.password.$touched)" >Password is required.</span>
+                                    </div>
+                                </div><br>
+                                <div class="form-group" ng-class="{ 'has-error' : registerform.confirmpassword.$invalid && (!registerform.confirmpassword.$pristine || registerform.confirmpassword.$touched) }">
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password"
+                                               ng-model="registerform.confirmPassword" required>
+                                        <i class="fa fa-close" ng-style="{'color':'red'}"  ng-show="registerform.confirmpassword.$invalid && (!registerform.confirmpassword.$pristine || registerform.confirmpassword.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'red'}" ng-show="registerform.confirmpassword.$invalid&&(!registerform.confirmpassword.$pristine  || registerform.confirmpassword.$touched)">Confirm your Password</span>
+                                    <span ng-show="checkPassword()">Passwords did not match</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-3"><br>
+                                            <input type="submit" ng-disabled="registerform.$invalid" name="register-submit" id="register-submit" style="position:relative;left: -110px;background-color:#2b669a;font-weight: bold;color: white " class="form-control btn btn-register" value="Register Now">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="panel-heading">
+                    <div class="row">-->
+
+                            <a ui-sref="app.login" id="register-form-link"><div class="register" style="position:relative;left:61px;">Already a member?LOGIN</div></a><br>
+
+                    <!--</div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
