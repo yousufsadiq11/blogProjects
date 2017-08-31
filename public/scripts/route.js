@@ -38,9 +38,29 @@ angular.module('c', ['ui.router'])
 
                     }
                 }
+            })
+            .state('app.login', {
+                url:'login',
+                views: {
+                    'content@': {
+                        templateUrl : 'login.html'
+
+                    }
+                }
+            })
+
+            .state('app.register', {
+                url:'register',
+                views: {
+                    'content@': {
+                        templateUrl : 'register.html'
+
+                    }
+                }
             });
 
-            // route for the menu page
+
+        // route for the menu page
             /*.state('app.menu', {
                 url: 'menu',
                 views: {
