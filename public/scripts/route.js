@@ -1,6 +1,5 @@
 'use strict';
-
-angular.module('c', ['ui.router'])
+angular.module('discussionForum', ['ui.router','ngMaterial'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
         // route for the home page
@@ -8,7 +7,8 @@ angular.module('c', ['ui.router'])
                 url:'/',
                 views: {
                     'header': {
-                        templateUrl : 'header.html'
+                        templateUrl : 'header.html',
+                        controller : 'HeaderController'
                     },
                     'content':{
                         templateUrl : 'homepage.html'
@@ -39,12 +39,23 @@ angular.module('c', ['ui.router'])
                     }
                 }
             })
+
             .state('app.login', {
                 url:'login',
                 views: {
                     'content@': {
                         templateUrl : 'login.html'
 
+                    }
+                }
+            })
+
+            .state('app.fullDescription', {
+                url:'fullDescription/:id',
+                views: {
+                    'content@': {
+                        templateUrl : 'fullDescription.html',
+                        controller : 'FullDescriptionController'
                     }
                 }
             })
@@ -57,31 +68,19 @@ angular.module('c', ['ui.router'])
 
                     }
                 }
-            });
-
-
-        // route for the menu page
-            /*.state('app.menu', {
-                url: 'menu',
-                views: {
-                    'content@': {
-                        templateUrl : 'views/menu.html',
-                        controller  : 'MenuController'
-                    }
-                }
             })
 
-            // route for the dishdetail page
-            .state('app.dishdetails', {
-                url: 'menu/:id',
+            .state('app.discussion', {
+                url:'discussion',
                 views: {
                     'content@': {
-                        templateUrl : 'views/detail.html',
-                        controller  : 'DishDetailController'
+                        templateUrl : 'discussion.html',
+                        controller: 'DiscussionController'
+
                     }
                 }
-            });*/
+            });
+
         $urlRouterProvider.otherwise('/');
+
     });
-
-
