@@ -24,6 +24,13 @@ angular.module('discussionForum')
     var vm=$scope;
     var clickedItem=discussionFactory.getDiscussion(parseInt($stateParams.id,10));
     vm.clickedItem=clickedItem;
+    vm.commentFlag=false;
+    vm.comment=function () {
+        if(vm.commentFlag==true)
+            vm.commentFlag=false;
+        else
+            vm.commentFlag=true;
+    }
     }])
 
     .controller('HeaderController', ['$scope','$stateParams','discussionFactory', function($scope,$stateParams, discussionFactory) {

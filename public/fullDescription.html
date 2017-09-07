@@ -1,12 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div ng-controller="FullDescriptionController">
-    <p>{{clickedItem.description}}</p>
+<div ng-controller="FullDescriptionController" ng-cloak>
+    <div flex-xs flex-gt-xs="70" layout="column" style="padding-left: 480px;">
+        <md-card>
+            <md-card-header>
+                <md-card-avatar>
+                     <img ng-src='images/user.jpeg' class="md-avatar" alt="{{clickedItem.createdBy}}">
+                    <!--<md-icon class="md-avatar-icon" md-svg-icon="images/messsage-icon.svg"></md-icon>-->
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">{{clickedItem.createdBy}}</span>
+                    <span class="md-subhead">{{clickedItem.when}}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{clickedItem.topic}}</span>
+                    <span class="md-subhead">{{clickedItem.description}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <md-icon md-svg-src='images/mode-comment.svg' ng-click="comment()"></md-icon>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <md-icon md-svg-src='images/like.svg' ng-click="like()"></md-icon>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <md-icon md-svg-src='images/dislike.svg' ng-click="disLike()"></md-icon>
+                    <br>
+                    <br>
+                    <!-- end of user messages -->
+                    <ul class="messages" ng-show="commentFlag">
+                        <img src="images/user.jpeg" style="height: 20px;width: 20px;" class="avatar" alt="Avatar">
+                        <p>comment1</p>
+                        <img src="images/user.jpeg" style="height: 20px;width: 20px;" class="avatar" alt="Avatar">
+                        <br><br>
+                        <blockquote class="message"><p>comment 2</p></blockquote>
+                        <div class="message_wrapper"><br>
+                            <img src="images/user.jpeg" style="height: 20px;width: 20px;" class="avatar" alt="Avatar">
+                            <blockquote class="message">comment 3</blockquote>
+                        </div>
+                    </ul>
+                    <!-- end of user messages -->
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
 </div>
-</body>
-</html>
