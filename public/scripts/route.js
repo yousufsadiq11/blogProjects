@@ -70,6 +70,17 @@ angular.module('discussionForum', ['ui.router','ngMaterial'])
                 }
             })
 
+            .state('app.creatediscussion', {
+                url:'createDiscussion',
+                views: {
+                    'content@': {
+                        templateUrl : 'createDiscussion.html'
+
+                    }
+                }
+            })
+
+
             .state('app.discussion', {
                 url:'discussion',
                 views: {

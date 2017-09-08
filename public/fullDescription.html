@@ -1,4 +1,4 @@
-<div ng-controller="FullDescriptionController" ng-cloak>
+<div ng-controller="FullDescriptionController" ng-cloak >
     <div flex-xs flex-gt-xs="70" layout="column" style="padding-left: 480px;">
         <md-card>
             <md-card-header>
@@ -17,8 +17,8 @@
                     <span class="md-subhead">{{clickedItem.description}}</span>
                 </md-card-title-text>
             </md-card-title>
-            <md-card-content>
-                <div>
+            <md-card-content style="width:500px">
+
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -36,19 +36,18 @@
                     <br>
                     <br>
                     <!-- end of user messages -->
-                    <ul class="messages" ng-show="commentFlag">
+
+                    <ul class="messages" ng-show="commentFlag" id="commentcontain" ng-repeat="item in clickedItem.comments">
                         <img src="images/user.jpeg" style="height: 20px;width: 20px;" class="avatar" alt="Avatar">
-                        <p>comment1</p>
-                        <img src="images/user.jpeg" style="height: 20px;width: 20px;" class="avatar" alt="Avatar">
-                        <br><br>
-                        <blockquote class="message"><p>comment 2</p></blockquote>
-                        <div class="message_wrapper"><br>
-                            <img src="images/user.jpeg" style="height: 20px;width: 20px;" class="avatar" alt="Avatar">
-                            <blockquote class="message">comment 3</blockquote>
-                        </div>
+                        <h5 style="width:400px;">{{item.commentDescription}}</h5>
+                        <br>
                     </ul>
+                <md-input-container md-no-float class="md-block" ng-show="commentFlag" ng-style="{'padding-left':'40px'}">
+                    <input ng-model="pushComment" placeholder="Comment">
+                    <md-icon md-svg-src='images/send.svg' ng-click="send()"></md-icon>
+                </md-input-container>
                     <!-- end of user messages -->
-                </div>
+
             </md-card-content>
         </md-card>
     </div>

@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" style="padding-top: 11%">
+            <div class="panel panel-login" id="card">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="login-form" action="#" method="post" role="form" style="display: block" name="discussionForm">
+                                <h2 style="position:relative;left:12px;color:#2b669a;font-weight:bold;" >Create Discussion</h2>
+                                <div class="form-group" ng-class="{ 'has-error' : discussionForm.topic.$invalid && (!discussionForm.topic.$pristine || discussionForm.topic.$touched) }">
+                                    <div class="col-sm-10">
+                                        <input type="textarea" class="form-control" id="topic" name="topic" placeholder="Enter topic"
+                                               ng-model="discussionForm.Topic" required>
+                                        <i class="fa fa-close" ng-style="{'color':'#2b669a'}"  ng-show="discussionForm.topic.$invalid && (!discussionForm.topic.$pristine || discussionForm.topic.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'#2b669a'}" ng-show="discussionForm.topic.$invalid&&(!discussionForm.topic.$pristine  || discussionForm.topic.$touched)" >Topic is required.</span>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group" ng-class="{ 'has-error' : discussionForm.description.$invalid && (!discussionForm.description.$pristine || discussionForm.description.$touched) }">
+                                    <div class="col-sm-10"><br>
+                                        <textarea class="form-control" id="description" name="description" placeholder="Enter description"
+                                                  ng-model="discussionForm.Description" required></textarea>
+                                        <i class="fa fa-close" ng-style="{'color':'#2b669a'}"  ng-show="discussionForm.description.$invalid && (!discussionForm.description.$pristine || discussionForm.description.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'#2b669a'}"  ng-show="discussionForm.description.$invalid&&(!discussionForm.description.$pristine  || discussionForm.description.$touched)" >description is required.</span>
+                                    </div>
+                                </div>
+
+                                <br><br>
+
+
+                                <div class="col-xs-6 form-group pull-right"><br>
+                                    <input type="submit" name="discussion-submit" ng-disabled="discussionForm.$invalid" id="discussion-submit" style="position:relative;left:-250px;background-color:#2b669a;font-weight: bold;color: white " class="form-control btn btn-login" value="Create Discussion">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <a ui-sref="app.discussion" id="register-form-link"><div class="register" style="position:relative;left:61px;">Go back to Discussions</div></a><br>
+            </div>
+        </div>
+    </div>
+</div>

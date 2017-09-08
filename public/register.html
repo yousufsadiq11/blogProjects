@@ -14,16 +14,16 @@
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Username"
                                                ng-model="registerform.firstName" required>
-                                        <i class="fa fa-close"  ng-style="{'color':'red'}" ng-show="registerform.firstname.$invalid && (!registerform.firstname.$pristine || registerform.firstname.$touched)" aria-hidden="true"></i>
-                                        <span ng-style="{'color':'red'}" ng-show="registerform.firstname.$invalid&&(!registerform.firstname.$pristine  || registerform.firstname.$touched)">Username is required.</span>
+                                        <i class="fa fa-close"  ng-style="{'color':'#2b669a'}" ng-show="registerform.firstname.$invalid && (!registerform.firstname.$pristine || registerform.firstname.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'#2b669a'}" ng-show="registerform.firstname.$invalid&&(!registerform.firstname.$pristine  || registerform.firstname.$touched)">Username is required.</span>
                                     </div>
                                 </div><br>
                                 <div class="form-group" ng-class="{ 'has-error' : registerform.email.$invalid && (!registerform.email.$pristine || registerform.email.$touched) }">
                                     <div class="col-sm-10" >
                                         <input type="email" id="email" name="email" placeholder="Enter email" class="form-control"
                                                ng-model="registerform.Email" required>
-                                        <i class="fa fa-close"  ng-style="{'color':'red'}" ng-show="registerform.email.$invalid && (!registerform.email.$pristine || registerform.email.$touched)" aria-hidden="true"></i>
-                                        <span ng-style="{'color':'red'}" ng-show="registerform.email.$invalid&&(!registerform.email.$pristine  || registerform.email.$touched)" >Email is required.</span>
+                                        <i class="fa fa-close"  ng-style="{'color':'#2b669a'}" ng-show="registerform.email.$invalid && (!registerform.email.$pristine || registerform.email.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'#2b669a'}" ng-show="registerform.email.$invalid&&(!registerform.email.$pristine  || registerform.email.$touched)" >Email is required.</span>
 
                                     </div>
                                 </div>
@@ -31,16 +31,16 @@
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"
                                                ng-model="registerform.Password" required>
-                                        <i class="fa fa-close" ng-style="{'color':'red'}" ng-show="registerform.password.$invalid && (!registerform.password.$pristine || registerform.password.$touched)" aria-hidden="true"></i>
-                                        <span ng-style="{'color':'red'}" ng-show="registerform.password.$invalid&&(!registerform.password.$pristine  || registerform.password.$touched)" >Password is required.</span>
+                                        <i class="fa fa-close" ng-style="{'color':'#2b669a'}" ng-show="registerform.password.$invalid && (!registerform.password.$pristine || registerform.password.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'#2b669a'}" ng-show="registerform.password.$invalid&&(!registerform.password.$pristine  || registerform.password.$touched)" >Password is required.</span>
                                     </div>
                                 </div><br>
                                 <div class="form-group" ng-class="{ 'has-error' : registerform.confirmpassword.$invalid && (!registerform.confirmpassword.$pristine || registerform.confirmpassword.$touched) }">
                                     <div class="col-sm-10">
                                         <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password"
                                                ng-model="registerform.confirmPassword" required>
-                                        <i class="fa fa-close" ng-style="{'color':'red'}"  ng-show="registerform.confirmpassword.$invalid && (!registerform.confirmpassword.$pristine || registerform.confirmpassword.$touched)" aria-hidden="true"></i>
-                                        <span ng-style="{'color':'red'}" ng-show="registerform.confirmpassword.$invalid&&(!registerform.confirmpassword.$pristine  || registerform.confirmpassword.$touched)">Confirm your Password</span>
+                                        <i class="fa fa-close" ng-style="{'color':'#2b669a'}"  ng-show="registerform.confirmpassword.$invalid && (!registerform.confirmpassword.$pristine || registerform.confirmpassword.$touched)" aria-hidden="true"></i>
+                                        <span ng-style="{'color':'#2b669a'}" ng-show="registerform.confirmpassword.$invalid&&(!registerform.confirmpassword.$pristine  || registerform.confirmpassword.$touched)">Confirm your Password</span>
                                     <span ng-show="checkPassword()">Passwords did not match</span>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                 <!--<div class="panel-heading">
                     <div class="row">-->
 
-                            <a ui-sref="app.login" id="register-form-link"><div class="register" style="position:relative;left:61px;">Already a member?LOGIN</div></a><br>
+                            <a ui-sref="app.login" id="register-form-link"><div class="register" style="position:relative;left:61px;">Already a member? LOGIN</div></a><br>
 
                     <!--</div>
                 </div>-->

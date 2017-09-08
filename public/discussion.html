@@ -1,29 +1,38 @@
-
-
 <div ng-controller="DiscussionController" ng-cloak>
     <md-toolbar class="md-theme-light">
         <h2 class="md-toolbar-tools">
-            <span>Welcome to Discussion Forum</span>
+
+            <span >Create a New Discussion &nbsp; </span>
+
+                    <a ui-sref="app.creatediscussion" class="glyphicon glyphicon-plus-sign">
+                        <!--<md-icon md-svg-src='images/add_discussion.svg' ng-style="{'position':'absolute','width':'500px','padding-top':'-50px'}"></md-icon>-->
+                    </a>
+
+
+
+
+
         </h2>
     </md-toolbar>
 
     <md-content>
         <md-list>
-            <md-list-item class="md-3-line" ng-repeat="item in discussions" >
-                <img ng-src='images/user.jpeg' class="md-avatar" alt="{{item.createdBy}}" >
-                <div class="md-list-item-text" >
+            <md-list-item class="md-3-line" ng-repeat="item in discussions">
+                <img ng-src='images/user.jpeg' class="md-avatar" alt="{{item.createdBy}}">
+                <div class="md-list-item-text">
                     <div ng-click="showDiscussion(item._id)">
-                    <h3>{{item.topic}}</h3>
-                    <h5>{{item.createdBy}}</h5>
+                        <h3>{{item.topic}}</h3>
+                        <h5>{{item.createdBy}}</h5>
                     </div>
-                        <div ng-show="item.active"><p>{{item.description}}</p>
-                        <a ui-sref="app.fullDescription({id:item._id})" >View Full Description</a>
+                    <div ng-show="item.active"><p>{{item.description}}</p>
+                        <a ui-sref="app.fullDescription({id:item._id})">View Full Description</a>
                     </div>
                 </div>
-                <md-icon md-svg-src = 'images/mode-comment.svg' ng-click="comment()"></md-icon>
                 <md-divider md-inset ng-if="!$last"></md-divider>
             </md-list-item>
         </md-list>
     </md-content>
+
+</div>
 </div>
 
