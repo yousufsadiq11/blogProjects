@@ -1,6 +1,6 @@
 'use strict';
 angular.module('discussionForum')
-    .controller('DiscussionController', ['$scope','discussionFactory','$mdDialog', function($scope,discussionFactory,$mdDialog) {
+    .controller('DiscussionController', ['$scope','$http','discussionFactory','$mdDialog', function($scope,$http,discussionFactory,$mdDialog) {
         var vm=$scope;
         vm.showDiscussion=function(value){
             /*var result = $filter('filter')(vm.discussions, {id:value});
@@ -16,8 +16,18 @@ angular.module('discussionForum')
                     vm.discussions[i].active=false;
             }
         };
-        vm.discussions= {};
-        vm.discussions=discussionFactory.getDiscussions();
+        $http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
+            method: 'GET',
+            url: 'http://localhost:3000/discussion'
+
+        }).
+        then(function(response) {
+            vm.discussions=response.data;
+            console.log(vm.discussions);
+
+        });
+        //vm.discussions=discussionFactory.getDiscussions();
+        console.log(vm.discussions);
 
 
 
