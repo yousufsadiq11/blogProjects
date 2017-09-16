@@ -7,12 +7,12 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="#" method="post" role="form" style="display: block" name="discussionForm">
+                            <form id="login-form" role="form" style="display: block" ng-model="createDiscussion" ng-submit="discussionSubmit()" ng-controller="discussionSubmitController">
                                 <h2 style="position:relative;left:12px;color:#2b669a;font-weight:bold;" >Create Discussion</h2>
                                 <div class="form-group" ng-class="{ 'has-error' : discussionForm.topic.$invalid && (!discussionForm.topic.$pristine || discussionForm.topic.$touched) }">
                                     <div class="col-sm-10">
                                         <input type="textarea" class="form-control" id="topic" name="topic" placeholder="Enter topic"
-                                               ng-model="discussionForm.Topic" required>
+                                               ng-model="createDiscussion.topic" required>
                                         <i class="fa fa-close" ng-style="{'color':'#2b669a'}"  ng-show="discussionForm.topic.$invalid && (!discussionForm.topic.$pristine || discussionForm.topic.$touched)" aria-hidden="true"></i>
                                         <span ng-style="{'color':'#2b669a'}" ng-show="discussionForm.topic.$invalid&&(!discussionForm.topic.$pristine  || discussionForm.topic.$touched)" >Topic is required.</span>
                                     </div>
@@ -21,7 +21,7 @@
                                 <div class="form-group" ng-class="{ 'has-error' : discussionForm.description.$invalid && (!discussionForm.description.$pristine || discussionForm.description.$touched) }">
                                     <div class="col-sm-10"><br>
                                         <textarea class="form-control" id="description" name="description" placeholder="Enter description"
-                                                  ng-model="discussionForm.Description" required></textarea>
+                                                  ng-model="createDiscussion.description" required></textarea>
                                         <i class="fa fa-close" ng-style="{'color':'#2b669a'}"  ng-show="discussionForm.description.$invalid && (!discussionForm.description.$pristine || discussionForm.description.$touched)" aria-hidden="true"></i>
                                         <span ng-style="{'color':'#2b669a'}"  ng-show="discussionForm.description.$invalid&&(!discussionForm.description.$pristine  || discussionForm.description.$touched)" >description is required.</span>
                                     </div>

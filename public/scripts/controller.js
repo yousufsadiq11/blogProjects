@@ -1,69 +1,36 @@
 'use strict';
 angular.module('discussionForum')
-    .controller('DiscussionController', ['$scope','$http','discussionFactory','$mdDialog', function($scope,$http,discussionFactory,$mdDialog) {
+    .controller('DiscussionController', ['$scope','$http','discussionFactory','$mdDialog', function($scope,$http,discussionFactory,$mdDialog,$q) {
         var vm=$scope;
         vm.showDiscussion=function(value){
-            /*var result = $filter('filter')(vm.discussions, {id:value});
-            var blog_number=result[0].active;
-            console.log(blog_number);*/
             var index = vm.discussions.map(function(e) { return e._id; }).indexOf(value);
-            if(vm.discussions[index].active==true)
+            if(vm.discussions[index].active===true)
                 vm.discussions[index].active=false;
             else
                 vm.discussions[index].active=true;
             for(var i=0;i<vm.discussions.length;i++){
-                if(i!=index&&vm.discussions[i].active!=true)
+                if(i!=index&&vm.discussions[i].active!==true)
                     vm.discussions[i].active=false;
             }
         };
-        $http({ // Accessing the Angular $http Service to send data via REST Communication to Node Server.
-            method: 'GET',
-            url: 'http://localhost:3000/discussion'
 
-        }).
-        then(function(response) {
-            vm.discussions=response.data;
-            console.log(vm.discussions);
-
+        discussionFactory.getDiscussions('http://localhost:3000/discussion').then(function mySuccess(response) {
+            vm.discussions = response.data;
+        }, function myError(response) {
+            vm.message = "Error Found :" + response.statusText;
         });
-        //vm.discussions=discussionFactory.getDiscussions();
-        console.log(vm.discussions);
-
-
-
-
-
-        vm.status = '  ';
-        vm.customFullscreen = false;
-
-        vm.showPrompt = function(ev) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.prompt()
-                .title('                                      create a New Discussion                      ')
-                .placeholder('Description')
-                .placeholder('Title')
-                .targetEvent(ev)
-                .ok('Post')
-                .cancel('Cancel');
-
-            $mdDialog.show(confirm).then(function(result) {
-                vm.status = 'You decided to name your dog ' + result + '.';
-            }, function() {
-                vm.status = 'You didn\'t name your dog.';
-            });
-        };
-
 
     }])
 
-    .controller('FullDescriptionController', ['$scope','$stateParams','discussionFactory', function($scope,$stateParams, discussionFactory) {
+    .controller('FullDescriptionController', ['$scope','$stateParams','discussionFactory', function($scope,$stateParams,discussionFactory,$q) {
     var vm=$scope;
-    var clickedItem=discussionFactory.getDiscussion(parseInt($stateParams.id,10));
-    vm.clickedItem=clickedItem;
+        discussionFactory.getDiscussion('http://localhost:3000/discussion/'+$stateParams.id).then(function Success(response) {
+            vm.clickedItem = response.data;
+        }, function Error(response) {
+            vm.message = "Error Found :" + response.statusText;
+        });
     vm.commentFlag=false;
-    vm.pushComment="";
-    vm.discussionIndex=discussionFactory.getIndex(parseInt($stateParams.id,10));
-    vm.discussions=discussionFactory.getDiscussions();
+    vm.commentDescription="";
     vm.comment=function () {
         if(vm.commentFlag==true)
             vm.commentFlag=false;
@@ -72,10 +39,15 @@ angular.module('discussionForum')
     }
     
     vm.send=function () {
-    vm.username="pooooooooooooojaaaaaaaaaaaaaaaaaaaaaa";
-    console.log()
-    vm.discussions[vm.discussionIndex].comments.push({'postedBy':vm.username,'commentDescription':vm.pushComment});
-    vm.pushComment="";
+    vm.username="testUser";
+    var commentData={'postedBy':vm.username,'commentDescription':vm.commentDescription};
+    var jdata='mydata='+JSON.stringify(commentData);
+        discussionFactory.postDiscussion('http://localhost:3000/discussion/'+$stateParams.id,jdata).then(function Success(response) {
+        }, function Error(response) {
+            vm.message = "Error Found :" + response.statusText;
+        });
+        vm.clickedItem.comments.push({'postedBy':vm.username,'commentDescription':vm.commentDescription});
+    vm.commentDescription="";
     };
 
     }])
@@ -114,5 +86,32 @@ angular.module('discussionForum')
             vm.login="active";
         }
     };
+
+    }])
+
+
+    .controller('discussionSubmitController', ['$scope','$stateParams','$state','createDiscussionFactory', function($scope,$stateParams,$state,createDiscussionFactory,$q) {
+
+        var vm=$scope;
+        vm.createDiscussion={topic:"",description:"",createdBy:'admin'};
+
+        vm.discussionSubmit=function () {
+            //var jsonData=JSON.stringify(vm.createDiscussion);
+            createDiscussionFactory.createDiscussion('http://localhost:3000/createDiscussion','mydata='+JSON.stringify(vm.createDiscussion))
+                .then(function mySuccess(response) {
+                    vm.createDiscussion={topic:"",description:"",createdBy:'admin'};
+                    console.log('asasas');
+                    $state.go('discussion', {}, {reload: true});
+                    $scope.createDiscussion.$setPristine();
+                    //$window.location.href = 'http://localhost:3000/';
+            }, function myError(response) {
+                    $state.go('discussion', {}, {reload: true});
+                    $scope.createDiscussion.$setPristine();
+                    //$window.location.href = 'http://localhost:3000/';
+                vm.message = "Error Found :" + response.statusText;
+                console.log('errrrrr'+vm.message);
+            });
+        }
+
 
     }]);

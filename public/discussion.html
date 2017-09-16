@@ -16,7 +16,7 @@
                         <h3>{{item.topic}}</h3>
                         <h5>{{item.createdBy}}</h5>
                     </div>
-                    <div ng-show="item.active"><p>{{item.description}}</p>
+                    <div ng-hide="item.active"><p>{{item.description}}</p>
                         <a ui-sref="app.fullDescription({id:item._id})">View Full Description</a>
                     </div>
                 </div>

@@ -51,7 +51,7 @@ angular.module('discussionForum', ['ui.router','ngMaterial'])
             })
 
             .state('app.fullDescription', {
-                url:'fullDescription/:id',
+                url:'discussion/:id',
                 views: {
                     'content@': {
                         templateUrl : 'fullDescription.html',
